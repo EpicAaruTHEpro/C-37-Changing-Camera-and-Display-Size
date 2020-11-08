@@ -14,6 +14,7 @@ function setup(){
   canvas = createCanvas(displayWidth-30, displayHeight-50);
   database = firebase.database();
   game = new Game();
+  form = new Form();
   game.getState();
   game.start();
 }

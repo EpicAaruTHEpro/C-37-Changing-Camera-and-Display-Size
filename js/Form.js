@@ -13,8 +13,15 @@ class Form {
     //this.reset.hide();
   }
 
-  reset() {
+  restart() {
+    allPlayers = database.ref('players');
     allPlayers.remove();
+    database.ref('/').update({
+      playerCount: 0
+    });
+    database.ref('/').update({
+      gameState: 0
+    });
     //playerCount = 0;
     //gameState = 0;
   }
@@ -29,7 +36,9 @@ class Form {
     this.reset.position(displayWidth-100, 0);
 
     this.reset.mousePressed(()=> {
-      reset();
+      form.restart();
+      //playerCount = 0;
+      //gameState = 0;
     })
     this.button.mousePressed(()=>{
       this.input.hide();
